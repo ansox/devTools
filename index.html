@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello');
+
+    // Interpolated
+    console.log('Hello I am a %s string!', 'shittest');
+
+
+    // Styled
+    console.log('%c I am a some great', 'font-size: 50px; background-color: red');
+
+    // warning!
+    console.warn('Oh noooooooo');
+
+
+    // Error :|
+    console.error('Algo de errado não está certo');
+
+    // Info
+    console.info('Para sua informação isso é um info')
+
+    // Testing
+    console.assert(1 === 2, 'Num pode ser')
+    // clearing
+    // console.clear()
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.dir(p)
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log('Dog years old', dog.age);
+      console.groupEnd(`${dog.name}`);
+
+    })
+    // counting
+    console.count('teste')
+    console.count('teste')
+    console.count('anso');
+    console.count('teste')
+    console.count('teste')
+    console.count('teste')
+    console.count('teste')
+    console.count('anso')
+    console.count('anso')
+
+    console.count('teste')
+    console.count('teste')
+    console.count('teste')
+    console.count('teste')
+    console.count('teste')
+
+    // timing
+
+    console.time('quem ta contando?');
+
+    fetch('https://api.github.com/users/ansox')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('quem ta contando?')
+        console.log(data);
+      })
+
+    //table
+
+    console.table(dogs);
+
+  </script>
+</body>
+
+</html>
